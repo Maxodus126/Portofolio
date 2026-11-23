@@ -1,6 +1,7 @@
 /* ============================================================
    Maxodus Portfolio — main.js
-   Mengambil repo dari GitHub API (public, tanpa token).
+   Proyek unggulan = 6 folder di 1_PROJECT_, pakai logo asli.
+   Semua repo tetap diambil live dari GitHub API.
    ============================================================ */
 (function () {
   'use strict';
@@ -9,90 +10,69 @@
   var API = 'https://api.github.com/users/' + USER + '/repos?per_page=100&sort=updated';
   var BASE = 'https://github.com/' + USER;
 
-  /* Warna bahasa (fallback default). */
   var LANG_COLORS = {
-    'HTML': '#e34c26',
-    'CSS': '#663399',
-    'JavaScript': '#f1e05a',
-    'TypeScript': '#3178c6',
-    'C#': '#178600',
-    'Python': '#3572A5',
-    'Rust': '#dea584',
-    'Shell': '#89e051',
-    'Swift': '#f05138',
-    'Go': '#00ADD8'
+    'HTML': '#e34c26', 'CSS': '#663399', 'JavaScript': '#f1e05a',
+    'TypeScript': '#3178c6', 'C#': '#178600', 'Python': '#3572A5',
+    'Rust': '#dea584', 'Shell': '#89e051', 'Swift': '#f05138', 'Go': '#00ADD8'
   };
 
-  /* ---------- Proyek unggulan ---------- */
-  var featured = [
+  /* 6 proyek sesuai folder di C:\Users\aflin\Music\1_PROJECT_ */
+  var projects = [
     {
-      name: 'WIN MAC',
-      desc: 'A macOS-style dock and menu bar for Windows 11 — ditulis dari nol dalam Rust di atas Win32. Dock Liquid Glass, icon magnification, genie minimize, Spotlight, dan lain-lain. Ringan: ~1 MB, 0% CPU saat idle.',
+      name: 'WIN MAC (MAC DOS)',
+      desc: 'Dock ala macOS + menu bar untuk Windows 11. Ditulis dari nol dengan Rust di Win32 — ringan, tanpa Windhawk/Explorer patching.',
       lang: 'Rust',
       repo: 'WinMac',
       img: 'assets/img/winmac.png',
-      stars: false,
-      tags: ['Desktop', 'Rust']
+      tags: ['Desktop', 'Rust', 'Windows']
     },
     {
       name: 'AllSense Control',
-      desc: 'Satu panel kecil untuk mengendalikan daya laptop Windows — kecerahan, volume, mode daya, hotkey global, dan self-update. Tanpa admin, tanpa driver vendor, dibangun dengan .NET.',
+      desc: 'Satu panel kendali daya laptop Windows — kecerahan, volume, power mode, hotkey global. Tanpa admin & tanpa driver vendor.',
       lang: 'C#',
       repo: 'AllSense-Control',
-      img: 'assets/img/allsense-control.png',
-      stars: false,
-      tags: ['Utilitas', '.NET']
+      img: 'assets/img/logo-allsense.png',
+      tags: ['Utilitas', '.NET', 'Windows']
     },
     {
       name: '9Router Controller Pro',
-      desc: 'GUI manager desktop untuk 9router (npx 9router) — tombol ON/OFF tanpa terminal. Status hidup real-time, monitor uptime & RAM, console live, dan system tray.',
+      desc: 'GUI manager desktop untuk npx 9router. Start/stop sekali klik, monitoring status & RAM, console live, dan system tray.',
       lang: 'Python',
       repo: '9router-controller',
-      img: null,
-      stars: false,
+      img: 'assets/img/logo-9router.png',
       tags: ['GUI', 'Python', 'Windows']
     },
     {
-      name: 'Spotifast Marketplace',
-      desc: 'Rebranded fork dari Spicetify Marketplace — install themes, extensions, dan snippets langsung dari dalam Spotify.',
+      name: 'G_Controll',
+      desc: 'Control center laptop gaming — panel kontrol untuk kecerahan, volume, dan pengaturan daya dengan tampilan khas gaming.',
+      lang: 'C#',
+      repo: 'AllSense-Control',
+      img: 'assets/img/logo-gcontroll.png',
+      tags: ['Gaming', 'Utilitas', 'Windows']
+    },
+    {
+      name: 'Spotifast',
+      desc: 'Tool & marketplace untuk Spotify — pasang theme, extension, dan snippet langsung dari dalam aplikasi Spotify.',
       lang: 'TypeScript',
       repo: 'spotifast-marketplace',
-      img: null,
-      stars: false,
-      tags: ['Spotify', 'Plugin']
+      img: 'assets/img/logo-spotifast.png',
+      tags: ['Spotify', 'Tool', 'Plugin']
     },
     {
-      name: 'Docker Lab Studio',
-      desc: 'Proyek eksperimen seputar Docker — container dan environment untuk belajar & uji coba.',
-      lang: 'HTML',
-      repo: 'Docker-Lab-Studio',
-      img: null,
-      stars: false,
-      tags: ['Docker']
-    },
-    {
-      name: 'MCP for Document',
-      desc: 'Model Context Protocol server untuk memproses dokumen — tool pengembangan berbasis TypeScript.',
+      name: 'Syris (yt-unified)',
+      desc: 'Kumpulan tool dan tool AI — termasuk yt-unified, analisis, serta utilitas pengembangan lain dalam satu workspace.',
       lang: 'TypeScript',
       repo: 'MCP-FOR-DOCUMENT',
-      img: null,
-      stars: false,
-      tags: ['MCP', 'Tool']
+      img: 'assets/img/logo-syris.png',
+      tags: ['Tool', 'AI', 'CLI']
     }
   ];
 
-  /* ---------- Utilitas ---------- */
   function el(tag, className, text) {
     var node = document.createElement(tag);
     if (className) node.className = className;
     if (text != null) node.textContent = text;
     return node;
-  }
-
-  function esc(s) {
-    var d = document.createElement('div');
-    d.textContent = s == null ? '' : String(s);
-    return d.innerHTML;
   }
 
   function langColor(lang) {
@@ -102,24 +82,23 @@
   function repoUrl(name) { return BASE + '/' + encodeURIComponent(name); }
   function releaseUrl(name) { return repoUrl(name) + '/releases/latest'; }
 
-  /* ---------- Render proyek unggulan ---------- */
+  /* ---------- Proyek unggulan ---------- */
   function renderFeatured() {
     var grid = document.getElementById('featured-grid');
     if (!grid) return;
 
-    featured.forEach(function (p) {
+    projects.forEach(function (p) {
       var card = el('article', 'project-card');
 
       var thumb = el('div', 'project-thumb');
       if (p.img) {
         var img = document.createElement('img');
         img.src = p.img;
-        img.alt = p.name + ' screenshot';
+        img.alt = p.name + ' logo';
         img.loading = 'lazy';
         thumb.appendChild(img);
       } else {
-        var fb = el('div', 'fallback');
-        fb.appendChild(el('span', null, '🛠️'));
+        var fb = el('div', 'fallback', '🛠️');
         thumb.appendChild(fb);
       }
       card.appendChild(thumb);
@@ -157,7 +136,7 @@
     });
   }
 
-  /* ---------- Render semua repo dari GitHub ---------- */
+  /* ---------- Semua repo dari GitHub ---------- */
   function renderRepos(repos) {
     var grid = document.getElementById('repo-grid');
     if (!grid) return;
@@ -169,16 +148,14 @@
       card.rel = 'noopener';
 
       var top = el('div', 'repo-top');
-      var name = el('span', 'repo-name', r.name);
+      top.appendChild(el('span', 'repo-name', r.name));
       var star = el('span', 'repo-star');
       star.innerHTML = '<svg viewBox="0 0 16 16" width="13" height="13" fill="currentColor" aria-hidden="true"><path d="M8 .25l2.36 4.78 5.27.77-3.81 3.72.9 5.25L8 12.32 3.28 14.77l.9-5.25L.37 5.8l5.27-.77z"/></svg>';
       star.appendChild(el('span', null, String(r.stargazers_count || 0)));
-      top.appendChild(name);
       top.appendChild(star);
       card.appendChild(top);
 
-      var desc = (r.description || '—');
-      card.appendChild(el('p', 'repo-desc', desc));
+      card.appendChild(el('p', 'repo-desc', r.description || '—'));
 
       var bottom = el('div', 'repo-bottom');
       if (r.language) {
@@ -189,26 +166,20 @@
         lang.appendChild(el('span', null, r.language));
         bottom.appendChild(lang);
       }
-      var link = el('span', 'repo-link', 'Buka →');
-      bottom.appendChild(link);
+      bottom.appendChild(el('span', 'repo-link', 'Buka →'));
       card.appendChild(bottom);
-
       grid.appendChild(card);
     });
   }
 
   function showLoading(grid, n) {
-    for (var i = 0; i < n; i++) {
-      var s = el('div', 'skeleton');
-      grid.appendChild(s);
-    }
+    for (var i = 0; i < n; i++) grid.appendChild(el('div', 'skeleton'));
   }
 
   function clearChildren(node) {
     while (node.firstChild) node.removeChild(node.firstChild);
   }
 
-  /* ---------- Ambil dari GitHub API ---------- */
   function fetchRepos() {
     var grid = document.getElementById('repo-grid');
     if (!grid) return;
@@ -216,30 +187,25 @@
 
     fetch(API)
       .then(function (res) {
-        if (!res.ok) {
-          // Batas limit/error -> fallback ke daftar lokal.
-          throw new Error('GitHub API ' + res.status);
-        }
+        if (!res.ok) throw new Error('GitHub API ' + res.status);
         return res.json();
       })
       .then(function (repos) {
         if (!Array.isArray(repos)) throw new Error('format tidak valid');
         clearChildren(grid);
-        var publicRepos = repos.filter(function (r) { return !r.fork; });
-        if (!publicRepos.length) {
+        var list = repos.filter(function (r) { return !r.fork; });
+        if (!list.length) {
           grid.appendChild(el('p', 'repo-empty', 'Tidak ada repo publik.'));
           return;
         }
-        renderRepos(publicRepos);
+        renderRepos(list);
       })
       .catch(function () {
         clearChildren(grid);
-        var msg = el('p', 'repo-error', 'Gagal memuat dari GitHub (mungkin terkena rate-limit). Coba lagi nanti — repo unggulan di atas tetap tampil.');
-        grid.appendChild(msg);
+        grid.appendChild(el('p', 'repo-error', 'Gagal memuat dari GitHub (rate-limit). Coba lagi nanti.'));
       });
   }
 
-  /* ---------- Statistik hero ---------- */
   function fetchStats() {
     Promise.all([
       fetch(API).then(function (r) { return r.json(); }),
@@ -249,18 +215,12 @@
       var user = results[1] || {};
       var repoEl = document.getElementById('stat-repos');
       var starEl = document.getElementById('stat-stars');
-      if (repoEl) {
-        repoEl.textContent = Array.isArray(user.public_repos) ? user.public_repos : repos.filter(function (r) { return !r.fork; }).length;
-      }
-      if (starEl && repos.length) {
-        starEl.textContent = repos.reduce(function (s, r) { return s + (r.stargazers_count || 0); }, 0);
-      }
+      if (repoEl) repoEl.textContent = user.public_repos != null ? user.public_repos : repos.filter(function (r) { return !r.fork; }).length;
+      if (starEl && repos.length) starEl.textContent = repos.reduce(function (s, r) { return s + (r.stargazers_count || 0); }, 0);
     }).catch(function () {});
   }
 
-  /* ---------- Init ---------- */
   document.getElementById('year').textContent = new Date().getFullYear();
-
   renderFeatured();
   fetchRepos();
   fetchStats();
