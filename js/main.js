@@ -1,7 +1,7 @@
 /* ============================================================
    Maxodus Portfolio — main.js
-   Hanya 6 project lokal dari folder 1_PROJECT_, pakai logo asli.
-   Tidak ada fetch GitHub API.
+   5 project lokal dari folder 1_PROJECT_, masing-masing pakai logo asli.
+   Tanpa fetch GitHub API.
    ============================================================ */
 (function () {
   'use strict';
@@ -32,14 +32,6 @@
       repo: '9router-controller',
       img: 'assets/img/logo-9router.png',
       tags: ['GUI', 'Python', 'Windows']
-    },
-    {
-      name: 'G_Controll',
-      desc: 'Control center laptop gaming — satu panel untuk kecerahan, volume, dan pengaturan daya dengan tampilan khas gaming.',
-      lang: 'C#',
-      repo: 'AllSense-Control',
-      img: 'assets/img/logo-gcontroll.png',
-      tags: ['Gaming', 'Utilitas', 'Windows']
     },
     {
       name: 'Spotifast',
@@ -73,10 +65,9 @@
     var grid = document.getElementById('featured-grid');
     if (!grid) return;
 
-    projects.forEach(function (p, index) {
+    projects.forEach(function (p) {
       var card = el('article', 'project-card');
 
-      // nomor urut kecil sebagai penanda daftar (bukan dekorasi)
       var thumb = el('div', 'project-thumb');
       var img = document.createElement('img');
       img.src = p.img;
