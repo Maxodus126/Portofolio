@@ -3,140 +3,142 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Maxodus — portofolio software Windows: WIN MAC dock, AllSense Control, 9Router Controller Pro, dan Spotifast." />
   <meta name="author" content="Maxodus" />
-  <meta name="theme-color" content="#0b0d12" />
+  <meta name="theme-color" content="#0b0d11" />
   <title>Maxodus — Portofolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Source+Code+Pro:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <!-- ===== Navigasi ===== -->
-  <header class="nav" id="nav">
-    <div class="container nav-inner">
-      <a href="#home" class="logo">
-        <span class="logo-mark">&lt;/&gt;</span>
-        <span class="logo-text">Maxodus</span>
+  <a class="skip-link" href="#main">Lewati ke konten</a>
+
+  <header class="nav">
+    <div class="nav-inner">
+      <a href="#home" class="logo" aria-label="Maxodus, ke beranda">
+        <span class="logo-mark" aria-hidden="true">&lt;/&gt;</span>
+        <span>Maxodus</span>
       </a>
-      <nav class="nav-links">
+      <nav class="nav-links" id="nav-links" aria-label="Navigasi utama">
         <a href="#home">Beranda</a>
         <a href="#tentang">Tentang</a>
         <a href="#proyek">Proyek</a>
         <a href="#kontak">Kontak</a>
       </nav>
-      <a href="https://github.com/Maxodus126" target="_blank" rel="noopener" class="btn btn-ghost btn-sm nav-gh">
-        <svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
-        GitHub
-      </a>
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Buka menu navigasi">
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+      </button>
     </div>
+    <nav class="nav-mobile" id="nav-mobile" aria-label="Navigasi seluler">
+      <a href="#home">Beranda</a>
+      <a href="#tentang">Tentang</a>
+      <a href="#proyek">Proyek</a>
+      <a href="#kontak">Kontak</a>
+    </nav>
   </header>
 
-  <!-- ===== Hero ===== -->
-  <section class="hero" id="home">
-    <div class="hero-bg" aria-hidden="true"></div>
-    <div class="container hero-inner">
-      <div class="hero-left">
-        <span class="badge">Software untuk Windows</span>
-        <h1 class="hero-title">Saya membuat<br><span class="accent">tools yang&#160;&#8203;kamu&#160;install<br>&#8203;dan&#160;pakai&#160;sehari&#160;hari.</span></h1>
-        <p class="hero-sub">
-          Dari dock ala macOS untuk Windows 11, panel kendali daya laptop,
-          sampai GUI manager. Pilih project lalu klik <b>Buka Website</b> untuk langsung mencoba.
-        </p>
-        <div class="hero-actions">
-          <a href="#proyek" class="btn btn-primary">Lihat Project</a>
-        </div>
-        <ul class="hero-stats">
-          <li><strong>4</strong><span>project tampil</span></li>
-          <li><strong>Windows</strong><span>platform utama</span></li>
-          <li><strong>Open source</strong><span>kode terbuka</span></li>
-        </ul>
-      </div>
-      <div class="hero-right">
-        <div class="terminal">
-          <div class="terminal-bar">
-            <span class="dot red"></span>
-            <span class="dot yellow"></span>
-            <span class="dot green"></span>
-            <span class="terminal-title">maxodus@user:~</span>
+  <main id="main">
+    <section class="hero" id="home">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="container hero-inner">
+        <div class="hero-left">
+          <span class="badge">Software untuk Windows</span>
+          <h1 class="hero-title">Tool desktop yang dibuat untuk dipakai setiap hari.</h1>
+          <p class="hero-sub">Empat project berikut semuanya bisa dicoba lewat website masing-masing. Pilih yang paling kamu butuhkan, lalu klik <strong>Buka Website</strong>.</p>
+          <div class="hero-actions">
+            <a href="#proyek" class="btn btn-primary">Lihat Project</a>
+            <a href="https://github.com/Maxodus126" target="_blank" rel="noopener" class="btn btn-ghost">GitHub Profile</a>
           </div>
-          <div class="terminal-body">
-            <p><span class="prompt">$</span> whoami</p>
-            <p class="out">Maxodus — Software Developer</p>
-            <p><span class="prompt">$</span> ls ./projects</p>
-            <p class="out">WIN&nbsp;MAC&nbsp;&nbsp;AllSense&nbsp;Control&nbsp;&nbsp;9Router</p>
-            <p><span class="prompt">$</span> open ./projects</p>
-            <p class="out blink">█</p>
+          <ul class="hero-stats" aria-label="Ringkasan portofolio">
+            <li><strong>4</strong><span>project tampil</span></li>
+            <li><strong>Windows</strong><span>platform utama</span></li>
+            <li><strong>Open source</strong><span>kode terbuka</span></li>
+          </ul>
+        </div>
+        <div class="hero-right">
+          <div class="terminal" role="img" aria-label="Contoh tampilan terminal: daftar project tersedia di folder projects">
+            <div class="terminal-bar" aria-hidden="true">
+              <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+              <span class="terminal-title">maxodus@user:~</span>
+            </div>
+            <div class="terminal-body" aria-hidden="true">
+              <p><span class="prompt">$</span> ls ./projects</p>
+              <p class="out">winmac&nbsp;&nbsp;allsense-control&nbsp;&nbsp;9router</p>
+              <p class="out">spotifast</p>
+              <p><span class="prompt">$</span> open ./projects</p>
+              <p class="out blink">█</p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ===== Tentang ===== -->
-  <section class="section" id="tentang">
-    <div class="container">
-      <div class="section-head">
-        <h2 class="section-title">Apa yang saya buat</h2>
-        <p class="section-sub">Software desktop untuk Windows yang praktis, ringan, dan memperbaiki pengalaman sehari-hari — tanpa admin, tanpa ribet.</p>
+    <section class="section" id="tentang">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">Apa yang saya buat</h2>
+          <p class="section-sub">Software desktop yang praktis, ringan, dan langsung bisa dipakai.</p>
+        </div>
+        <div class="feature-grid">
+          <article class="feature-card">
+            <span class="feature-icon" aria-hidden="true">▣</span>
+            <h3>Desktop &amp; utilitas</h3>
+            <p>Dock, menu bar, dan panel kendali daya untuk Windows.</p>
+          </article>
+          <article class="feature-card">
+            <span class="feature-icon" aria-hidden="true">▤</span>
+            <h3>Tool &amp; GUI</h3>
+            <p>Manager proses dan alur kerja yang sebelumnya hanya bisa lewat terminal.</p>
+          </article>
+          <article class="feature-card">
+            <span class="feature-icon" aria-hidden="true">◈</span>
+            <h3>Open source</h3>
+            <p>Source code terbuka di GitHub untuk siapa pun yang ingin mempelajari atau memodifikasi.</p>
+          </article>
+          <article class="feature-card">
+            <span class="feature-icon" aria-hidden="true">⌘</span>
+            <h3>Langsung bisa dicoba</h3>
+            <p>Setiap project memiliki website sendiri yang bisa dibuka satu klik dari halaman ini.</p>
+          </article>
+        </div>
       </div>
-      <div class="feature-grid">
-        <div class="feature-card">
-          <div class="feature-icon">🖥️</div>
-          <h3>Desktop &amp; Utilitas</h3>
-          <p>Dock, menu bar, dan panel kendali daya untuk Windows — dipikir ulang dari nol.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">⚙️</div>
-          <h3>Tool &amp; CLI</h3>
-          <p>Alat pengembangan dan plugin yang memudahkan alur kerja harian.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">🧱</div>
-          <h3>Open Source</h3>
-          <p>Kode terbuka di GitHub — siapa pun boleh memakai, memodifikasi, dan berkontribusi.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ===== Proyek ===== -->
-  <section class="section section-dark" id="proyek">
-    <div class="container">
-      <div class="section-head">
-        <h2 class="section-title">Project</h2>
-        <p class="section-sub">Klik tombol <b>Buka Website</b> untuk langsung ke situs project.</p>
+    <section class="section section-dark" id="proyek">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">Project</h2>
+          <p class="section-sub">Tombol <strong>Buka Website</strong> membuka situs project masing-masing di tab baru.</p>
+        </div>
+        <div class="project-grid" id="featured-grid"></div>
       </div>
-      <div class="project-grid" id="featured-grid">
-        <!-- diisi oleh JS -->
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ===== Kontak ===== -->
-  <section class="section" id="kontak">
-    <div class="container contact-inner">
-      <h2 class="section-title">Mari terhubung</h2>
-      <p class="section-sub">Lihat semua source code dan rilis di GitHub.</p>
-      <div class="contact-actions">
-        <a href="https://github.com/Maxodus126" target="_blank" rel="noopener" class="btn btn-primary">
-          <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
-          GitHub Profile
-        </a>
+    <section class="section" id="kontak">
+      <div class="container contact-inner">
+        <h2 class="section-title">Mari terhubung</h2>
+        <p class="section-sub">Source code dan rilis semua project tersedia di GitHub.</p>
+        <div class="contact-actions">
+          <a href="https://github.com/Maxodus126" target="_blank" rel="noopener" class="btn btn-primary">GitHub Profile</a>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
   <footer class="footer">
     <div class="container footer-inner">
-      <p>© <span id="year"></span> Maxodus · Dibuat dengan ❤️ dan kode terbuka.</p>
+      <p>© <span id="year"></span> Maxodus</p>
       <div class="footer-links">
-        <a href="#home">Atas</a>
+        <a href="#home">Ke atas</a>
         <a href="https://github.com/Maxodus126" target="_blank" rel="noopener">GitHub</a>
       </div>
     </div>
   </footer>
 
-  <script src="js/main.js"></script>
+  <script src="js/main.js" defer></script>
 </body>
 </html>

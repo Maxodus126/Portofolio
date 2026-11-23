@@ -1,6 +1,7 @@
 /* ============================================================
    Maxodus Portfolio — main.js
-   4 project dengan website github.io yang sudah aktif.
+   4 project dengan tombol "Buka Website" ke github.io masing-masing.
+   Menu mobile toggle.
    ============================================================ */
 (function () {
   'use strict';
@@ -58,6 +59,8 @@
       var img = document.createElement('img');
       img.src = p.img;
       img.alt = 'Logo ' + p.name;
+      img.width = 256;
+      img.height = 256;
       img.loading = 'lazy';
       thumb.appendChild(img);
       card.appendChild(thumb);
@@ -77,11 +80,12 @@
       body.appendChild(meta);
 
       var actions = el('div', 'project-actions');
-      var viewBtn = el('a', 'btn btn-primary btn-sm', 'Buka Website');
-      viewBtn.href = p.site;
-      viewBtn.target = '_blank';
-      viewBtn.rel = 'noopener';
-      actions.appendChild(viewBtn);
+      var btn = el('a', 'btn btn-primary btn-sm', 'Buka Website');
+      btn.href = p.site;
+      btn.target = '_blank';
+      btn.rel = 'noopener';
+      btn.setAttribute('aria-label', 'Buka website ' + p.name);
+      actions.appendChild(btn);
       body.appendChild(actions);
 
       card.appendChild(body);
@@ -89,6 +93,28 @@
     });
   }
 
+  /* ---------- Menu mobile ---------- */
+  function initMobileMenu() {
+    var toggle = document.getElementById('nav-toggle');
+    var menu = document.getElementById('nav-mobile');
+    if (!toggle || !menu) return;
+
+    toggle.addEventListener('click', function () {
+      var open = menu.classList.toggle('show');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      toggle.setAttribute('aria-label', open ? 'Tutup menu navigasi' : 'Buka menu navigasi');
+    });
+
+    menu.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () {
+        menu.classList.remove('show');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.setAttribute('aria-label', 'Buka menu navigasi');
+      });
+    });
+  }
+
   document.getElementById('year').textContent = new Date().getFullYear();
   renderFeatured();
+  initMobileMenu();
 })();
