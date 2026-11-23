@@ -1,29 +1,28 @@
 # Maxodus — Portofolio
 
-Website portofolio statis untuk project-project GitHub — dibuat dengan HTML, CSS, dan JavaScript murni (tanpa framework).
+Website portofolio statis untuk 6 project yang ada di folder `1_PROJECT_`.
+Dibuat dengan HTML, CSS, dan JavaScript murni — tanpa framework, tanpa API.
 
-## Fitur
+## Project yang tampil
 
-- 🖥️ **Proyek unggulan** — kartu dengan screenshot, bahasa, dan link ke repo & rilis.
-- 🔄 **Semua repo otomatis** — dimuat langsung dari API GitHub `@Maxodus126`.
-- 📊 **Statistik live** — jumlah repo & star diambil otomatis.
-- 🌙 Desain gelap profesional & responsif.
+- WIN MAC (MAC DOS) — dock ala macOS untuk Windows 11 (Rust)
+- AllSense Control — panel kendali daya laptop Windows (C#)
+- 9Router Controller Pro — GUI manager untuk npx 9router (Python)
+- G_Controll — control center gaming (C#)
+- Spotifast — tool & marketplace Spotify (TypeScript)
+- Syris — tool & tool AI (TypeScript)
 
 ## Menjalankan lokal
 
-Cukup buka `index.html` di browser, atau jalankan server sederhana:
+Buka `index.html` di browser, atau:
 
 ```bash
 python -m http.server 8000
-# lalu buka http://localhost:8000
+# http://localhost:8000
 ```
 
-## Deploy ke GitHub Pages
+## Deploy
 
-1. Push repo ini ke GitHub.
-2. **Settings → Pages** → Source: `main` branch → Save.
-3. Website tampil di `https://<username>.github.io/Portofolio/`.
+Sudah aktif di GitHub Pages: https://maxodus126.github.io/Portofolio/
 
-## Ubah username GitHub
-
-Di [js/main.js](js/main.js), ubah variabel `USER` (default: `Maxodus126`).
+Setiap push ke branch `main` otomatis di-deploy (biasanya 1–2 menit).
