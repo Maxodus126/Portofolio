@@ -156,10 +156,30 @@ img { display: block; max-width: 100%; }
 .project-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
 .project-card {
   background: var(--surface); border: 1px solid var(--line);
-  border-radius: 18px; padding: 28px; display: flex; flex-direction: column;
+  border-radius: 12px; padding: 0; display: flex; flex-direction: column;
+  overflow: hidden;
   transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
 }
-.project-card:hover { transform: translateY(-5px); border-color: rgba(255,176,46,.4); box-shadow: 0 20px 46px rgba(0,0,0,.38); }
+.project-card:hover { transform: translateY(-4px); border-color: rgba(255,176,46,.4); box-shadow: 0 20px 46px rgba(0,0,0,.38); }
+
+/* Window chrome: identity motif dari DESIGN.md */
+.win-chrome {
+  display: flex; align-items: center; gap: 10px;
+  padding: 11px 16px;
+  background: var(--bg-soft);
+  border-bottom: 1px solid var(--line);
+}
+.win-dots { display: flex; gap: 6px; }
+.win-dot { width: 9px; height: 9px; border-radius: 50%; }
+.win-dot-1 { background: var(--accent); }
+.win-dot-2 { background: #5c6478; }
+.win-dot-3 { background: #3d4454; }
+.win-title { font-family: var(--font); font-weight: 600; font-size: .84rem; color: var(--text); }
+.win-lang {
+  margin-left: auto;
+  font-family: var(--mono); font-size: .66rem; color: var(--muted);
+  letter-spacing: .02em;
+}
 .project-thumb {
   position: relative; aspect-ratio: 16/9; overflow: hidden;
   background: var(--bg-soft);

@@ -55,6 +55,17 @@
     projects.forEach(function (p) {
       var card = el('article', 'project-card');
 
+      // window chrome: titik jendela + judul + label bahasa
+      var chrome = el('div', 'win-chrome');
+      var dots = el('div', 'win-dots');
+      ['win-dot win-dot-1', 'win-dot win-dot-2', 'win-dot win-dot-3'].forEach(function (c) {
+        dots.appendChild(el('span', c));
+      });
+      chrome.appendChild(dots);
+      chrome.appendChild(el('span', 'win-title', p.name));
+      chrome.appendChild(el('span', 'win-lang', p.lang));
+      card.appendChild(chrome);
+
       var thumb = el('div', 'project-thumb');
       var img = document.createElement('img');
       img.src = p.img;
@@ -68,7 +79,6 @@
       var body = el('div', 'project-body');
       var titleRow = el('div', 'project-title');
       titleRow.appendChild(el('span', null, p.name));
-      titleRow.appendChild(el('span', 'project-lang', p.lang));
       body.appendChild(titleRow);
 
       body.appendChild(el('p', 'project-desc', p.desc));
