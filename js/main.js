@@ -77,10 +77,6 @@
       card.appendChild(thumb);
 
       var body = el('div', 'project-body');
-      var titleRow = el('div', 'project-title');
-      titleRow.appendChild(el('span', null, p.name));
-      body.appendChild(titleRow);
-
       body.appendChild(el('p', 'project-desc', p.desc));
 
       var meta = el('div', 'project-meta');
