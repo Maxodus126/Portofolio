@@ -1,19 +1,16 @@
 /* ============================================================
    Maxodus Portfolio — main.js
-   5 project lokal dari folder 1_PROJECT_, masing-masing pakai logo asli.
-   Tanpa fetch GitHub API.
+   4 project dengan website github.io yang sudah aktif.
    ============================================================ */
 (function () {
   'use strict';
-
-  var BASE = 'https://github.com/Maxodus126';
 
   var projects = [
     {
       name: 'WIN MAC',
       desc: 'Dock ala macOS dan menu bar untuk Windows 11. Ditulis dari nol dengan Rust di atas Win32 — ringan, tanpa Windhawk, tanpa patch Explorer.',
       lang: 'Rust',
-      repo: 'WinMac',
+      site: 'https://maxodus126.github.io/WinMac/',
       img: 'assets/img/winmac.png',
       tags: ['Desktop', 'Rust', 'Windows']
     },
@@ -21,7 +18,7 @@
       name: 'AllSense Control',
       desc: 'Satu panel kecil untuk mengendalikan daya laptop Windows — kecerahan, volume, power mode, dan hotkey global. Tanpa admin, tanpa driver vendor.',
       lang: 'C#',
-      repo: 'AllSense-Control',
+      site: 'https://maxodus126.github.io/AllSense-Control/',
       img: 'assets/img/logo-allsense.png',
       tags: ['Utilitas', '.NET', 'Windows']
     },
@@ -29,7 +26,7 @@
       name: '9Router Controller Pro',
       desc: 'GUI manager desktop untuk 9router (npx 9router). Start/stop sekali klik, status hidup real-time, monitoring RAM, dan console langsung.',
       lang: 'Python',
-      repo: '9router-controller',
+      site: 'https://maxodus126.github.io/9router-controller/',
       img: 'assets/img/logo-9router.png',
       tags: ['GUI', 'Python', 'Windows']
     },
@@ -37,17 +34,9 @@
       name: 'Spotifast',
       desc: 'Tool dan marketplace untuk Spotify — pasang theme, extension, dan snippet langsung dari dalam aplikasi Spotify.',
       lang: 'TypeScript',
-      repo: 'spotifast-marketplace',
+      site: 'https://maxodus126.github.io/Spotifast/',
       img: 'assets/img/logo-spotifast.png',
       tags: ['Spotify', 'Tool', 'Plugin']
-    },
-    {
-      name: 'Syris',
-      desc: 'Tool dan tool AI dalam satu workspace — termasuk yt-unified, utilitas analisis, dan pengembangan.',
-      lang: 'TypeScript',
-      repo: 'MCP-FOR-DOCUMENT',
-      img: 'assets/img/logo-syris.png',
-      tags: ['Tool', 'AI', 'CLI']
     }
   ];
 
@@ -57,9 +46,6 @@
     if (text != null) node.textContent = text;
     return node;
   }
-
-  function repoUrl(name) { return BASE + '/' + encodeURIComponent(name); }
-  function releaseUrl(name) { return repoUrl(name) + '/releases/latest'; }
 
   function renderFeatured() {
     var grid = document.getElementById('featured-grid');
@@ -79,8 +65,7 @@
       var body = el('div', 'project-body');
       var titleRow = el('div', 'project-title');
       titleRow.appendChild(el('span', null, p.name));
-      var badge = el('span', 'project-lang', p.lang);
-      titleRow.appendChild(badge);
+      titleRow.appendChild(el('span', 'project-lang', p.lang));
       body.appendChild(titleRow);
 
       body.appendChild(el('p', 'project-desc', p.desc));
@@ -92,16 +77,11 @@
       body.appendChild(meta);
 
       var actions = el('div', 'project-actions');
-      var viewBtn = el('a', 'btn btn-primary btn-sm', 'Lihat Repo');
-      viewBtn.href = repoUrl(p.repo);
+      var viewBtn = el('a', 'btn btn-primary btn-sm', 'Buka Website');
+      viewBtn.href = p.site;
       viewBtn.target = '_blank';
       viewBtn.rel = 'noopener';
-      var dlBtn = el('a', 'btn btn-ghost btn-sm', '⬇️ Rilis');
-      dlBtn.href = releaseUrl(p.repo);
-      dlBtn.target = '_blank';
-      dlBtn.rel = 'noopener';
       actions.appendChild(viewBtn);
-      actions.appendChild(dlBtn);
       body.appendChild(actions);
 
       card.appendChild(body);

@@ -8,9 +8,7 @@ Dibuat dengan HTML, CSS, dan JavaScript murni — tanpa framework, tanpa API.
 - WIN MAC (MAC DOS) — dock ala macOS untuk Windows 11 (Rust)
 - AllSense Control — panel kendali daya laptop Windows (C#)
 - 9Router Controller Pro — GUI manager untuk npx 9router (Python)
-- G_Controll — control center gaming (C#)
 - Spotifast — tool & marketplace Spotify (TypeScript)
-- Syris — tool & tool AI (TypeScript)
 
 ## Menjalankan lokal
 
