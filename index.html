@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Maxodus — portofolio software Windows: WIN MAC dock, AllSense Control, 9Router Controller Pro, dan Spotifast." />
+  <meta name="description" content="Maxodus: portofolio software Windows: WIN MAC dock, AllSense Control, 9Router Controller Pro, dan Spotifast." />
   <meta name="author" content="Maxodus" />
   <meta name="theme-color" content="#0b0d11" />
-  <title>Maxodus — Portofolio</title>
+  <title>Maxodus | Portofolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
@@ -21,7 +21,7 @@
         <span class="logo-mark" aria-hidden="true">&lt;/&gt;</span>
         <span>Maxodus</span>
       </a>
-      <nav class="nav-links" id="nav-links" aria-label="Navigasi utama">
+      <nav class="nav-links" aria-label="Navigasi utama">
         <a href="#home">Beranda</a>
         <a href="#tentang">Tentang</a>
         <a href="#proyek">Proyek</a>
@@ -43,76 +43,75 @@
 
   <main id="main">
     <section class="hero" id="home">
-      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="hero-grid-bg" aria-hidden="true"></div>
+      <div class="hero-glow" aria-hidden="true"></div>
       <div class="container hero-inner">
-        <div class="hero-left">
-          <span class="badge">Software untuk Windows</span>
-          <h1 class="hero-title">Tool desktop yang dibuat untuk dipakai setiap hari.</h1>
-          <p class="hero-sub">Empat project berikut semuanya bisa dicoba lewat website masing-masing. Pilih yang paling kamu butuhkan, lalu klik <strong>Buka Website</strong>.</p>
-          <div class="hero-actions">
+        <div class="hero-copy">
+          <span class="eyebrow" data-anim style="--d:.05s">Software untuk Windows</span>
+          <h1 class="hero-title" data-anim style="--d:.16s">Empat tool Windows yang <span class="hl">dipakai tiap hari</span>.</h1>
+          <p class="hero-sub" data-anim style="--d:.3s">Dock, panel kendali daya, manager proses, dan marketplace Spotify. Semuanya bisa dicoba langsung lewat website masing-masing.</p>
+          <div class="hero-actions" data-anim style="--d:.44s">
             <a href="#proyek" class="btn btn-primary">Lihat Project</a>
             <a href="https://github.com/Maxodus126" target="_blank" rel="noopener" class="btn btn-ghost">GitHub Profile</a>
           </div>
-          <ul class="hero-stats" aria-label="Ringkasan portofolio">
-            <li><strong>4</strong><span>project tampil</span></li>
-            <li><strong>Windows</strong><span>platform utama</span></li>
-            <li><strong>Open source</strong><span>kode terbuka</span></li>
-          </ul>
         </div>
-        <div class="hero-right">
-          <div class="terminal" role="img" aria-label="Contoh tampilan terminal: daftar project tersedia di folder projects">
-            <div class="terminal-bar" aria-hidden="true">
-              <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
-              <span class="terminal-title">maxodus@user:~</span>
+
+        <div class="hero-shot" data-anim style="--rv-y:34px;--d:.6s">
+          <div class="win">
+            <div class="win-bar" aria-hidden="true">
+              <span class="win-dots"><i class="d1"></i><i class="d2"></i><i class="d3"></i></span>
+              <span class="win-name">AllSense Control</span>
+              <span class="win-tag">v1.0.3</span>
             </div>
-            <div class="terminal-body" aria-hidden="true">
-              <p><span class="prompt">$</span> ls ./projects</p>
-              <p class="out">winmac&nbsp;&nbsp;allsense-control&nbsp;&nbsp;9router</p>
-              <p class="out">spotifast</p>
-              <p><span class="prompt">$</span> open ./projects</p>
-              <p class="out blink">█</p>
-            </div>
+            <img src="assets/img/hero-app.png" width="1128" height="762" fetchpriority="high"
+                 alt="Tampilan dashboard AllSense Control: status perangkat, suhu CPU, GPU, dan RAM." />
           </div>
         </div>
+      </div>
+
+      <div class="container">
+        <nav class="dock" data-anim style="--rv-y:30px;--d:.72s" aria-label="Pintasan project">
+          <button type="button" class="dock-item" data-target="p-winmac" aria-label="Lompat ke project WIN MAC">
+            <img src="assets/img/dock-winmac.png" width="128" height="128" alt="" />
+            <span class="dock-label">WIN MAC</span>
+          </button>
+          <button type="button" class="dock-item" data-target="p-allsense" aria-label="Lompat ke project AllSense Control">
+            <img src="assets/img/dock-allsense.png" width="128" height="128" alt="" />
+            <span class="dock-label">AllSense</span>
+          </button>
+          <button type="button" class="dock-item" data-target="p-9router" aria-label="Lompat ke project 9Router Controller Pro">
+            <img src="assets/img/dock-9router.png" width="128" height="128" alt="" />
+            <span class="dock-label">9Router</span>
+          </button>
+          <button type="button" class="dock-item" data-target="p-spotifast" aria-label="Lompat ke project Spotifast">
+            <img src="assets/img/dock-spotifast.png" width="128" height="128" alt="" />
+            <span class="dock-label">Spotifast</span>
+          </button>
+        </nav>
       </div>
     </section>
 
     <section class="section" id="tentang">
-      <div class="container">
-        <div class="section-head">
-          <h2 class="section-title">Apa yang saya buat</h2>
-          <p class="section-sub">Software desktop yang praktis, ringan, dan langsung bisa dipakai.</p>
+      <div class="container about">
+        <div class="about-lead" data-reveal>
+          <h2 class="section-title">Dibangun karena tool bawaan Windows kurang pas.</h2>
+          <p class="about-body">Saya membuat aplikasi desktop kecil yang menyelesaikan satu masalah dengan rapi: mengubah taskbar, mengatur daya laptop, mengelola proses, atau memasang tema Spotify. Setiap project ditulis dengan bahasa yang paling cocok untuk pekerjaannya.</p>
+          <a href="#proyek" class="link-arrow">Lihat keempat project</a>
         </div>
-        <div class="feature-grid">
-          <article class="feature-card">
-            <span class="feature-icon" aria-hidden="true">▣</span>
-            <h3>Desktop &amp; utilitas</h3>
-            <p>Dock, menu bar, dan panel kendali daya untuk Windows.</p>
-          </article>
-          <article class="feature-card">
-            <span class="feature-icon" aria-hidden="true">▤</span>
-            <h3>Tool &amp; GUI</h3>
-            <p>Manager proses dan alur kerja yang sebelumnya hanya bisa lewat terminal.</p>
-          </article>
-          <article class="feature-card">
-            <span class="feature-icon" aria-hidden="true">◈</span>
-            <h3>Open source</h3>
-            <p>Source code terbuka di GitHub untuk siapa pun yang ingin mempelajari atau memodifikasi.</p>
-          </article>
-          <article class="feature-card">
-            <span class="feature-icon" aria-hidden="true">⌘</span>
-            <h3>Langsung bisa dicoba</h3>
-            <p>Setiap project memiliki website sendiri yang bisa dibuka satu klik dari halaman ini.</p>
-          </article>
-        </div>
+        <ul class="about-facts" data-reveal>
+          <li><span class="fact-k">Bahasa</span><span class="fact-v">Rust, C#, Python, TypeScript</span></li>
+          <li><span class="fact-k">Platform</span><span class="fact-v">Windows 10 dan 11</span></li>
+          <li><span class="fact-k">Distribusi</span><span class="fact-v">Installer dan situs produk</span></li>
+          <li><span class="fact-k">Lisensi</span><span class="fact-v">Source terbuka di GitHub</span></li>
+        </ul>
       </div>
     </section>
 
     <section class="section section-dark" id="proyek">
       <div class="container">
-        <div class="section-head">
+        <div class="proj-head" data-reveal>
           <h2 class="section-title">Project</h2>
-          <p class="section-sub">Tombol <strong>Buka Website</strong> membuka situs project masing-masing di tab baru.</p>
+          <p class="section-sub">Empat aplikasi Windows, masing-masing dengan website sendiri.</p>
         </div>
         <div class="project-grid" id="featured-grid"></div>
       </div>
@@ -120,10 +119,10 @@
 
     <section class="section" id="kontak">
       <div class="container contact-inner">
-        <h2 class="section-title">Mari terhubung</h2>
-        <p class="section-sub">Source code dan rilis semua project tersedia di GitHub.</p>
-        <div class="contact-actions">
-          <a href="https://github.com/Maxodus126" target="_blank" rel="noopener" class="btn btn-primary">GitHub Profile</a>
+        <h2 class="section-title" data-reveal>Source code dan rilis ada di GitHub.</h2>
+        <p class="section-sub" data-reveal>Buka profil untuk melihat seluruh repository, commit, dan release.</p>
+        <div class="contact-actions" data-reveal>
+          <a href="https://github.com/Maxodus126" target="_blank" rel="noopener" class="btn btn-primary">Buka GitHub Profile</a>
         </div>
       </div>
     </section>
