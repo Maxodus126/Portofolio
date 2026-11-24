@@ -86,7 +86,7 @@
     var grid = document.getElementById('featured-grid');
     if (!grid) return;
 
-    projects.forEach(function (p) {
+    projects.forEach(function (p, i) {
       var card = el('article', 'project-card');
       card.id = p.id;
       card.tabIndex = -1; // agar bisa menerima focus() programatik dari dock
@@ -95,6 +95,7 @@
       bar.appendChild(dots());
       bar.appendChild(el('span', 'card-name', p.name));
       bar.appendChild(el('span', 'card-lang', p.lang));
+      bar.appendChild(el('span', 'card-index', '0' + (i + 1)));
       card.appendChild(bar);
 
       var shot = el('div', 'card-shot');
@@ -115,7 +116,7 @@
       p.tags.forEach(function (t) { tags.appendChild(el('span', null, t)); });
       body.appendChild(tags);
 
-      var cta = el('a', 'btn btn-primary btn-sm card-cta', 'Buka Website');
+      var cta = el('a', 'btn btn-primary btn-sm card-cta', 'Buka Website ↗');
       cta.href = p.site;
       cta.target = '_blank';
       cta.rel = 'noopener';
@@ -232,6 +233,28 @@
     });
   }
 
+  /* ---------- Progress scroll (garis atas) ---------- */
+  function initScrollProgress() {
+    var bar = document.getElementById('scrollbar');
+    if (!bar) return;
+    var ticking = false;
+    var doc = document.documentElement;
+
+    function update() {
+      var max = doc.scrollHeight - doc.clientHeight;
+      var p = max > 0 ? (doc.scrollTop / max) * 100 : 0;
+      bar.style.width = p.toFixed(2) + '%';
+      ticking = false;
+    }
+
+    window.addEventListener('scroll', function () {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(update);
+    }, { passive: true });
+    update();
+  }
+
   /* ---------- Scrollspy: sorot tautan navbar aktif ---------- */
   function initScrollSpy() {
     var links = Array.prototype.slice.call(document.querySelectorAll('.nav-links a, .nav-mobile a'));
@@ -313,5 +336,6 @@
   safeInit('dockMagnify', initDockMagnify);
   safeInit('magnetic', initMagnetic);
   safeInit('scrollspy', initScrollSpy);
+  safeInit('scrollProgress', initScrollProgress);
   safeInit('mobileMenu', initMobileMenu);
 })();

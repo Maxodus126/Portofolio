@@ -404,6 +404,66 @@ a:focus-visible, button:focus-visible, .btn:focus-visible {
   .nav-mobile { display: none !important; }
 }
 
+/* ============================================================
+   POLISH LAYER
+   ============================================================ */
+
+/* --- Progress scroll (garis atas) --- */
+.scroll-progress {
+  position: fixed; top: 0; left: 0; height: 3px; width: 0%;
+  background: linear-gradient(90deg, var(--accent), var(--green));
+  border-radius: 0 2px 2px 0;
+  z-index: 120;
+  pointer-events: none;
+}
+
+/* --- Selection & scrollbar (nada gelap) --- */
+::selection { background: rgba(255, 176, 46, .32); color: var(--text); }
+html { scrollbar-color: #2a3140 var(--bg); }
+::-webkit-scrollbar { width: 11px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb {
+  background: #2a3140; border-radius: 6px; border: 2px solid var(--bg);
+}
+::-webkit-scrollbar-thumb:hover { background: #374055; }
+
+/* --- Anchor berhenti di bawah nav sticky --- */
+section[id] { scroll-margin-top: 74px; }
+
+/* --- Hero ambient diperkaya (amber utama + hijau kecil) --- */
+.hero-glow {
+  background:
+    radial-gradient(circle at 62% 34%, rgba(255, 176, 46, .16), transparent 52%),
+    radial-gradient(circle at 28% 78%, rgba(74, 224, 160, .08), transparent 50%);
+  filter: saturate(1.05);
+}
+.hero-grid-bg { opacity: .42; }
+
+/* --- Dock lebih hadir --- */
+.dock {
+  box-shadow: 0 22px 46px rgba(0, 0, 0, .5), inset 0 1px 0 rgba(255, 255, 255, .03);
+}
+.dock-item img { box-shadow: 0 6px 16px rgba(0, 0, 0, .35); }
+
+/* --- Index kartu proyek --- */
+.card-index {
+  margin-left: 2px;
+  font-family: var(--mono); font-size: .66rem;
+  color: var(--faint); letter-spacing: .04em;
+}
+
+/* --- Sentuhan variasi section --- */
+#proyek { padding-top: 96px; }
+#kontak { position: relative; }
+#kontak::before {
+  content: ""; position: absolute; top: -1px; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 176, 46, .35), transparent);
+}
+.about-facts li { transition: padding-left .25s var(--ease-out); }
+@media (hover: hover) {
+  .about-facts li:hover { padding-left: 6px; }
+}
+
 /* --- Reduced-motion: jaring pengaman menyeluruh --- */
 @media (prefers-reduced-motion: reduce) {
   .js [data-anim], .js [data-reveal], .js .project-card {
