@@ -113,8 +113,8 @@ ul { list-style: none; }
   background: radial-gradient(circle, rgba(255, 176, 46, .13), transparent 62%);
 }
 .hero-inner {
-  display: grid; grid-template-columns: 1fr 1.02fr;
-  gap: 56px; align-items: center;
+  max-width: 680px;
+  display: flex; flex-direction: column;
 }
 .eyebrow {
   display: inline-flex; align-items: center; gap: 8px;
@@ -312,9 +312,7 @@ a:focus-visible, button:focus-visible, .btn:focus-visible {
 
 /* ---------- Responsif ---------- */
 @media (max-width: 960px) {
-  .hero-inner { grid-template-columns: 1fr; gap: 38px; }
   .hero-title { max-width: 24ch; }
-  .hero-shot { max-width: 620px; }
   .hero-glow { right: -260px; top: 40px; opacity: .7; }
   .about { grid-template-columns: 1fr; gap: 36px; }
   .about-facts li:first-child { border-top: 1px solid var(--line); }
